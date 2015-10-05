@@ -1,0 +1,21 @@
+{
+    "name": "cottacush/cottacush-rbac",
+    "description": "Custom Role Based Access Control Implementation",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adegoke Obasa",
+            "email": "goke@cottacush.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "cottacush\\rbac\\": ""
+        }
+    }
+}
