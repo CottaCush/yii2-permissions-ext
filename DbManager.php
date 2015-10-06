@@ -28,7 +28,7 @@ class DbManager extends BaseManager
      */
     public function getRole($key)
     {
-        return Role::find()->where(['key' => ':key'], ['key' => $key])->one();
+        return Role::find()->where(['key' => $key])->one();
     }
 
     /**
@@ -38,7 +38,7 @@ class DbManager extends BaseManager
      */
     public function getRoleById($roleId)
     {
-        return Role::find()->where(['key' => ':id'], ['id' => $roleId])->one();
+        return Role::find()->where(['id' => $roleId])->one();
     }
 
     /**
@@ -57,7 +57,7 @@ class DbManager extends BaseManager
      */
     public function getPermission($key)
     {
-        return Permission::find()->where(['key' => ':id'], ['key' => $key])->one();
+        return Permission::find()->where(['key' => $key])->one();
     }
 
     /**
@@ -67,7 +67,7 @@ class DbManager extends BaseManager
      */
     public function getPermissionById($permissionId)
     {
-        return Permission::find()->where(['key' => ':id'], ['id' => $permissionId])->one();
+        return Permission::find()->where(['id' => $permissionId])->one();
     }
 
     /**
