@@ -64,4 +64,18 @@ class Role extends \yii\db\ActiveRecord
     {
         return $this->hasMany(RolePermission::className(), ['role_id' => 'id']);
     }
+
+    /**
+     * Get Permissions assigned to role
+     * @author Adegoke Obasa <goke@cottacush.com>
+     * @return mixed
+     */
+    public function getPermissions()
+    {
+        return $this->hasMany(Permission::className(), ['id' => 'permission_id'])
+            ->viaTable("role_permissions", ['role_id' => 'id'])
+            ->onCondition(['status' => 1])
+            ->asArray()
+            ->all();
+    }
 }

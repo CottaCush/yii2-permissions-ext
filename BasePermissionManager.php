@@ -10,7 +10,7 @@ use cottacush\rbac\models\Role;
 use yii\base\Component;
 use yii\helpers\ArrayHelper;
 
-abstract class BaseManager extends Component implements ManagerInterface
+abstract class BasePermissionManager extends Component implements ManagerInterface
 {
     protected $sessionPrefix = 'cottacush_rbac';
     /**

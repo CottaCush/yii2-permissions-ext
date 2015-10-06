@@ -9,7 +9,7 @@ namespace cottacush\rbac;
 use cottacush\rbac\models\Permission;
 use cottacush\rbac\models\Role;
 
-class DbManager extends BaseManager
+class DbPermissionManager extends BasePermissionManager
 {
 
     /**
@@ -18,7 +18,7 @@ class DbManager extends BaseManager
      */
     public function getRoles()
     {
-        return Role::find()->all();
+        return Role::find()->asArray()->all();
     }
 
     /**
@@ -28,7 +28,7 @@ class DbManager extends BaseManager
      */
     public function getRole($key)
     {
-        return Role::find()->where(['key' => $key])->one();
+        return Role::find()->where(['key' => $key, 'status' => 1])->one();
     }
 
     /**
@@ -38,7 +38,7 @@ class DbManager extends BaseManager
      */
     public function getRoleById($roleId)
     {
-        return Role::find()->where(['id' => $roleId])->one();
+        return Role::find()->where(['id' => $roleId, 'status' => 1])->one();
     }
 
     /**
@@ -47,7 +47,7 @@ class DbManager extends BaseManager
      */
     public function getPermissions()
     {
-        return Permission::find()->all();
+        return Permission::find()->asArray()->all();
     }
 
     /**
@@ -57,7 +57,7 @@ class DbManager extends BaseManager
      */
     public function getPermission($key)
     {
-        return Permission::find()->where(['key' => $key])->one();
+        return Permission::find()->where(['key' => $key, 'status' => 1])->one();
     }
 
     /**
@@ -67,7 +67,7 @@ class DbManager extends BaseManager
      */
     public function getPermissionById($permissionId)
     {
-        return Permission::find()->where(['id' => $permissionId])->one();
+        return Permission::find()->where(['id' => $permissionId, 'status' => 1])->one();
     }
 
     /**
@@ -91,6 +91,6 @@ class DbManager extends BaseManager
          */
         $role = $this->getUserRole();
 
-        return $role->rolePermissions;
+        return $role->getPermissions();
     }
 }
