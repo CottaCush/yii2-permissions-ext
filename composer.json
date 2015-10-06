@@ -1,5 +1,5 @@
 {
-    "name": "yii2-rbac",
+    "name": "yii2-permissions-ext",
     "description": "Custom Role Based Access Control Implementation",
     "type": "yii2-extension",
     "keywords": ["yii2","extension"],
