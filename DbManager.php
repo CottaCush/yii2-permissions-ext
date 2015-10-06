@@ -47,7 +47,7 @@ class DbManager extends BaseManager
      */
     public function getPermissions()
     {
-        Permission::find()->all();
+        return Permission::find()->all();
     }
 
     /**
