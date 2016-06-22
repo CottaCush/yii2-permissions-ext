@@ -5,6 +5,8 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 
+Custom Permission Based Access Control Yii2 Extension
+
 ## Install
 
 Via Composer
