@@ -4,6 +4,7 @@
     "type": "yii2-extension",
     "keywords": ["yii2","extension"],
     "license": "MIT",
+    "version": "dev-master",
     "authors": [
         {
             "name": "Adegoke Obasa",
