@@ -5,8 +5,8 @@
 
 namespace cottacush\rbac;
 
-
 use cottacush\rbac\models\Role;
+use Yii;
 use yii\base\Component;
 use yii\helpers\ArrayHelper;
 
@@ -36,7 +36,7 @@ abstract class BasePermissionManager extends Component implements ManagerInterfa
     public function setRoleByKey($roleKey)
     {
         $role = $this->getRole($roleKey);
-        \Yii::$app->session->set($this->sessionPrefix . '::user_role', $role);
+        Yii::$app->session->set($this->sessionPrefix . '::user_role', $role);
     }
 
     /**
@@ -47,6 +47,6 @@ abstract class BasePermissionManager extends Component implements ManagerInterfa
     public function setRoleById($roleId)
     {
         $role = $this->getRoleById($roleId);
-        \Yii::$app->session->set($this->sessionPrefix . '::user_role', $role);
+        Yii::$app->session->set($this->sessionPrefix . '::user_role', $role);
     }
 }

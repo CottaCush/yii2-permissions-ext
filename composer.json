@@ -1,5 +1,5 @@
 {
-    "name": "yii2-permissions-ext",
+    "name": "cottacush/yii2-permissions-ext",
     "description": "Custom Role Based Access Control Implementation",
     "type": "yii2-extension",
     "keywords": ["yii2","extension"],
@@ -10,11 +10,12 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "*"
+        "php" : "~5.5|~7.0",
+        "yiisoft/yii2": ">=2.0.8"
     },
     "autoload": {
         "psr-4": {
-            "cottacush\\rbac\\": ""
+            "cottacush\\rbac\\": "src"
         }
     }
 }

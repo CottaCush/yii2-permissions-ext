@@ -5,7 +5,6 @@
 
 namespace cottacush\rbac;
 
-
 use cottacush\rbac\models\Permission;
 use cottacush\rbac\models\Role;
 
