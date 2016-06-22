@@ -13,7 +13,7 @@ Via Composer
 
 ``` bash
 $ composer require cottacush/yii2-permissions-ext
-$ ./yii migrate/up --migrationPath=@vendor/yii2-permissions-ext/migrations
+$ ./yii migrate/up --migrationPath=@vendor/cottacush/yii2-permissions-ext/migrations
 ```
 
 
