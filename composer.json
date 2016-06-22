@@ -3,6 +3,7 @@
     "description": "Custom Role Based Access Control Implementation",
     "type": "yii2-extension",
     "keywords": ["yii2","extension"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Adegoke Obasa",
