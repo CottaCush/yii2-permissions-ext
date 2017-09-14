@@ -48,6 +48,7 @@ If you discover any security related issues, please email <developers@cottacush.
 ## Credits
 
 - Adegoke Obasa goke@cottacush.com
+- Olawale Lawal <wale@cottacush.com>
 - [All Contributors][link-contributors]
 
 ## License

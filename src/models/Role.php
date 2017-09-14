@@ -2,7 +2,8 @@
 
 namespace cottacush\rbac\models;
 
-use Yii;
+use cottacush\rbac\libs\Constants;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "roles".
@@ -17,7 +18,7 @@ use Yii;
  *
  * @property RolePermission[] $rolePermissions
  */
-class Role extends \yii\db\ActiveRecord
+class Role extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -35,7 +36,7 @@ class Role extends \yii\db\ActiveRecord
         return [
             [['key', 'label', 'created_at', 'updated_at'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
-            [['status'], 'integer'],
+            [['status'], 'string', 'max' => 100],
             [['key'], 'string', 'max' => 150],
             [['label'], 'string', 'max' => 255],
             [['key'], 'unique']
@@ -74,7 +75,7 @@ class Role extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Permission::className(), ['id' => 'permission_id'])
             ->viaTable("role_permissions", ['role_id' => 'id'])
-            ->onCondition(['status' => 1])
+            ->onCondition(['status' => Constants::STATUS_ACTIVE])
             ->asArray()
             ->all();
     }

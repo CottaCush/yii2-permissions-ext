@@ -2,7 +2,7 @@
 
 namespace cottacush\rbac\models;
 
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "role_permissions".
@@ -16,7 +16,7 @@ use Yii;
  * @property Permission $permission
  * @property Role $role
  */
-class RolePermission extends \yii\db\ActiveRecord
+class RolePermission extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -35,7 +35,12 @@ class RolePermission extends \yii\db\ActiveRecord
             [['role_id', 'permission_id', 'created_at'], 'required'],
             [['role_id', 'permission_id'], 'integer'],
             [['created_at'], 'safe'],
-            [['role_id', 'permission_id'], 'unique', 'targetAttribute' => ['role_id', 'permission_id'], 'message' => 'The combination of Role ID and Permission ID has already been taken.']
+            [
+                ['role_id', 'permission_id'],
+                'unique',
+                'targetAttribute' => ['role_id', 'permission_id'],
+                'message' => 'The combination of Role ID and Permission ID has already been taken.'
+            ]
         ];
     }
 
