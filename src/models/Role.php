@@ -74,8 +74,8 @@ class Role extends ActiveRecord
     public function getPermissions()
     {
         return $this->hasMany(Permission::class, ['id' => 'permission_id'])
-            ->viaTable("role_permissions", ['role_id' => 'id'])
-            ->onCondition(['status' => Constants::STATUS_ACTIVE])
+            ->viaTable(RolePermission::tableName(), ['role_id' => 'id'])
+            ->onCondition([Permission::tableName() . '.status' => Constants::STATUS_ACTIVE])
             ->asArray()
             ->all();
     }

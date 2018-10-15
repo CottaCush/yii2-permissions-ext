@@ -13,7 +13,7 @@ use yii\db\ActiveRecord;
  * @property string $label
  * @property string $created_at
  * @property string $updated_at
- * @property integer $status
+ * @property string $status
  *
  * @property RolePermission[] $rolePermissions
  */
