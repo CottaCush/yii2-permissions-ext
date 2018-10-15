@@ -5,12 +5,12 @@
 
 namespace cottacush\rbac;
 
+use cottacush\rbac\libs\Constants;
 use cottacush\rbac\models\Permission;
 use cottacush\rbac\models\Role;
 
 class DbPermissionManager extends BasePermissionManager
 {
-
     /**
      * @author Adegoke Obasa <goke@cottacush.com>
      * @return mixed
@@ -27,7 +27,7 @@ class DbPermissionManager extends BasePermissionManager
      */
     public function getRole($key)
     {
-        return Role::find()->where(['key' => $key, 'status' => 1])->one();
+        return Role::find()->where(['key' => $key, 'status' => Constants::STATUS_ACTIVE])->limit(1)->one();
     }
 
     /**
@@ -37,7 +37,7 @@ class DbPermissionManager extends BasePermissionManager
      */
     public function getRoleById($roleId)
     {
-        return Role::find()->where(['id' => $roleId, 'status' => 1])->one();
+        return Role::find()->where(['id' => $roleId, 'status' => Constants::STATUS_ACTIVE])->limit(1)->one();
     }
 
     /**
@@ -56,7 +56,7 @@ class DbPermissionManager extends BasePermissionManager
      */
     public function getPermission($key)
     {
-        return Permission::find()->where(['key' => $key, 'status' => 1])->one();
+        return Permission::find()->where(['key' => $key, 'status' => Constants::STATUS_ACTIVE])->limit(1)->one();
     }
 
     /**
@@ -66,7 +66,8 @@ class DbPermissionManager extends BasePermissionManager
      */
     public function getPermissionById($permissionId)
     {
-        return Permission::find()->where(['id' => $permissionId, 'status' => 1])->one();
+        return Permission::find()->where(['id' => $permissionId, 'status' => Constants::STATUS_ACTIVE])
+            ->limit(1)->one();
     }
 
     /**
