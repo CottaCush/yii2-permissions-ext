@@ -2,7 +2,7 @@
 
 namespace cottacush\rbac\models;
 
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "permissions".
@@ -17,7 +17,7 @@ use Yii;
  *
  * @property RolePermission[] $rolePermissions
  */
-class Permission extends \yii\db\ActiveRecord
+class Permission extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -35,7 +35,7 @@ class Permission extends \yii\db\ActiveRecord
         return [
             [['key', 'label', 'created_at', 'updated_at'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
-            [['status'], 'integer'],
+            [['status'], 'string', 'max' => 100],
             [['key'], 'string', 'max' => 150],
             [['label'], 'string', 'max' => 255],
             [['key'], 'unique']

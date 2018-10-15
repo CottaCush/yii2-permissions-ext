@@ -1,6 +1,6 @@
 <?php
 
-use yii\db\Schema;
+use cottacush\rbac\libs\Constants;
 use yii\db\Migration;
 
 /**
@@ -9,6 +9,7 @@ use yii\db\Migration;
  */
 class m151005_151946_install extends Migration
 {
+
     public function up()
     {
         $tableOptions = null;
@@ -17,7 +18,7 @@ class m151005_151946_install extends Migration
         }
 
         // Create permissions table
-        $this->createTable('permissions', [
+        $this->createTable(Constants::TABLE_PERMISSIONS, [
             'id' => $this->primaryKey(),
             'key' => $this->string(150)->notNull(),
             'label' => $this->string(255)->notNull(),
@@ -27,10 +28,10 @@ class m151005_151946_install extends Migration
         ], $tableOptions);
 
         // Add Indexes for performance optimization
-        $this->createIndex('permissions_unique_key', 'permissions', 'key', true);
+        $this->createIndex('permissions_unique_key', Constants::TABLE_PERMISSIONS, 'key', true);
 
         // Create Roles Table
-        $this->createTable('roles', [
+        $this->createTable(Constants::TABLE_ROLES, [
             'id' => $this->primaryKey(),
             'key' => $this->string(150)->notNull(),
             'label' => $this->string(255)->notNull(),
@@ -40,10 +41,10 @@ class m151005_151946_install extends Migration
         ], $tableOptions);
 
         // Add Indexes for performance optimization
-        $this->createIndex('roles_unique_key', 'roles', 'key', true);
+        $this->createIndex('roles_unique_key', Constants::TABLE_ROLES, 'key', true);
 
         // Create role permissions mapping table
-        $this->createTable('role_permissions', [
+        $this->createTable(Constants::TABLE_ROLE_PERMISSIONS, [
             'id' => $this->primaryKey(),
             'role_id' => $this->integer()->notNull(),
             'permission_id' => $this->integer()->notNull(),
@@ -51,28 +52,17 @@ class m151005_151946_install extends Migration
         ], $tableOptions);
 
         // Add Indexes for performance optimization
-        $this->createIndex('rp_role_id_composite', 'role_permissions', ['role_id', 'permission_id'], true);
+        $this->createIndex('rp_role_id_composite', Constants::TABLE_ROLE_PERMISSIONS, ['role_id', 'permission_id'], true);
 
         // Add Foreign Keys
-        $this->addForeignKey('rp_roles_role_id', 'role_permissions', 'role_id', 'roles', 'id');
-        $this->addForeignKey('rp_roles_permission_id', 'role_permissions', 'permission_id', 'permissions', 'id');
+        $this->addForeignKey('rp_roles_role_id', Constants::TABLE_ROLE_PERMISSIONS, 'role_id', Constants::TABLE_ROLES, 'id');
+        $this->addForeignKey('rp_roles_permission_id', Constants::TABLE_ROLE_PERMISSIONS, 'permission_id', Constants::TABLE_PERMISSIONS, 'id');
     }
 
     public function down()
     {
-        $this->dropTable("role_permissions");
-        $this->dropTable("permissions");
-        $this->dropTable("roles");
+        $this->dropTable(Constants::TABLE_ROLE_PERMISSIONS);
+        $this->dropTable(Constants::TABLE_PERMISSIONS);
+        $this->dropTable(Constants::TABLE_ROLES);
     }
-
-    /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
-
-    public function safeDown()
-    {
-    }
-    */
 }
