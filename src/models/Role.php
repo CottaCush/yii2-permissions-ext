@@ -63,7 +63,7 @@ class Role extends ActiveRecord
      */
     public function getRolePermissions()
     {
-        return $this->hasMany(RolePermission::className(), ['role_id' => 'id']);
+        return $this->hasMany(RolePermission::class, ['role_id' => 'id']);
     }
 
     /**
@@ -73,7 +73,7 @@ class Role extends ActiveRecord
      */
     public function getPermissions()
     {
-        return $this->hasMany(Permission::className(), ['id' => 'permission_id'])
+        return $this->hasMany(Permission::class, ['id' => 'permission_id'])
             ->viaTable("role_permissions", ['role_id' => 'id'])
             ->onCondition(['status' => Constants::STATUS_ACTIVE])
             ->asArray()

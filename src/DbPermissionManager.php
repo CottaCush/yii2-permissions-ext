@@ -66,7 +66,8 @@ class DbPermissionManager extends BasePermissionManager
      */
     public function getPermissionById($permissionId)
     {
-        return Permission::find()->where(['id' => $permissionId, 'status' => Constants::STATUS_ACTIVE])->limit(1)->one();
+        return Permission::find()->where(['id' => $permissionId, 'status' => Constants::STATUS_ACTIVE])
+            ->limit(1)->one();
     }
 
     /**

@@ -62,7 +62,7 @@ class RolePermission extends ActiveRecord
      */
     public function getPermission()
     {
-        return $this->hasOne(Permission::className(), ['id' => 'permission_id']);
+        return $this->hasOne(Permission::class, ['id' => 'permission_id']);
     }
 
     /**
@@ -70,6 +70,6 @@ class RolePermission extends ActiveRecord
      */
     public function getRole()
     {
-        return $this->hasOne(Role::className(), ['id' => 'role_id']);
+        return $this->hasOne(Role::class, ['id' => 'role_id']);
     }
 }

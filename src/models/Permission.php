@@ -62,6 +62,6 @@ class Permission extends ActiveRecord
      */
     public function getRolePermissions()
     {
-        return $this->hasMany(RolePermission::className(), ['permission_id' => 'id']);
+        return $this->hasMany(RolePermission::class, ['permission_id' => 'id']);
     }
 }

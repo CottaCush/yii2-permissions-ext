@@ -8,7 +8,6 @@
 
 namespace cottacush\rbac\libs;
 
-
 class Constants
 {
     const STATUS_ACTIVE = 'active';
