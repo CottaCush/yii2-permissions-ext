@@ -16,4 +16,6 @@ class Constants
     const TABLE_PERMISSIONS = "permissions";
     const TABLE_ROLE_PERMISSIONS = "role_permissions";
     const TABLE_ROLES = "roles";
+
+    const STATUS_KEY_LENGTH = 100;
 }

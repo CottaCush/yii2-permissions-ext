@@ -1,6 +1,7 @@
 <?php
 
 use cottacush\rbac\libs\Constants;
+use cottacush\rbac\libs\Utils;
 use yii\db\Migration;
 
 /**
@@ -13,8 +14,11 @@ class m151005_151946_install extends Migration
     public function up()
     {
         $tableOptions = null;
-        if ($this->db->driverName === 'mysql') {
+        $statusColumn = $this->smallInteger()->notNull();
+
+        if (Utils::isMySQL()) {
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+            $statusColumn = $this->smallInteger()->notNull()->defaultValue(1);
         }
 
         // Create permissions table
@@ -24,7 +28,7 @@ class m151005_151946_install extends Migration
             'label' => $this->string(255)->notNull(),
             'created_at' => $this->dateTime()->notNull(),
             'updated_at' => $this->dateTime()->notNull(),
-            'status' => $this->smallInteger()->notNull()->defaultValue(1)
+            'status' => $statusColumn
         ], $tableOptions);
 
         // Add Indexes for performance optimization
@@ -37,7 +41,7 @@ class m151005_151946_install extends Migration
             'label' => $this->string(255)->notNull(),
             'created_at' => $this->dateTime()->notNull(),
             'updated_at' => $this->dateTime()->notNull(),
-            'status' => $this->smallInteger()->notNull()->defaultValue(1)
+            'status' => $statusColumn
         ], $tableOptions);
 
         // Add Indexes for performance optimization
@@ -57,6 +61,11 @@ class m151005_151946_install extends Migration
         // Add Foreign Keys
         $this->addForeignKey('rp_roles_role_id', Constants::TABLE_ROLE_PERMISSIONS, 'role_id', Constants::TABLE_ROLES, 'id');
         $this->addForeignKey('rp_roles_permission_id', Constants::TABLE_ROLE_PERMISSIONS, 'permission_id', Constants::TABLE_PERMISSIONS, 'id');
+
+        if (Utils::isMSSQL()) {
+            Utils::addDefaultValue(null, Constants::TABLE_PERMISSIONS, 'status', 1);
+            Utils::addDefaultValue(null, Constants::TABLE_ROLES, 'status', 1);
+        }
     }
 
     public function down()
