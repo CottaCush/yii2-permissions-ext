@@ -8,12 +8,13 @@ namespace cottacush\rbac;
 use cottacush\rbac\libs\Constants;
 use cottacush\rbac\models\Permission;
 use cottacush\rbac\models\Role;
+use Yii;
 
 class DbPermissionManager extends BasePermissionManager
 {
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getRoles()
     {
@@ -21,9 +22,9 @@ class DbPermissionManager extends BasePermissionManager
     }
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $key
      * @return Role
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getRole($key)
     {
@@ -31,9 +32,9 @@ class DbPermissionManager extends BasePermissionManager
     }
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $roleId
      * @return Role
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getRoleById($roleId)
     {
@@ -41,8 +42,8 @@ class DbPermissionManager extends BasePermissionManager
     }
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getPermissions()
     {
@@ -50,9 +51,9 @@ class DbPermissionManager extends BasePermissionManager
     }
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $key
      * @return Permission
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getPermission($key)
     {
@@ -60,27 +61,29 @@ class DbPermissionManager extends BasePermissionManager
     }
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $permissionId
      * @return Permission
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getPermissionById($permissionId)
     {
-        return Permission::find()->where(['id' => $permissionId, 'status' => Constants::STATUS_ACTIVE])->limit(1)->one();
+        return Permission::find()->where(['id' => $permissionId, 'status' => Constants::STATUS_ACTIVE])
+            ->limit(1)->one();
     }
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getUserRole()
     {
-        $role = \Yii::$app->session->get($this->sessionPrefix . '::user_role');
+        $role = Yii::$app->session->get($this->sessionPrefix . '::user_role');
         return $role;
     }
 
     /**
      * @inheritdoc
+     * @throws \yii\base\InvalidConfigException
      * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getUserPermissions()

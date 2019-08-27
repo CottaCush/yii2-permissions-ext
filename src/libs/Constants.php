@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lawale
- * Date: 14/09/2017
- * Time: 12:07
- */
 
 namespace cottacush\rbac\libs;
-
 
 class Constants
 {

@@ -68,8 +68,9 @@ class Role extends ActiveRecord
 
     /**
      * Get Permissions assigned to role
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @return mixed
+     * @throws \yii\base\InvalidConfigException
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getPermissions()
     {

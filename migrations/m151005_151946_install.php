@@ -9,7 +9,6 @@ use yii\db\Migration;
  */
 class m151005_151946_install extends Migration
 {
-
     public function up()
     {
         $tableOptions = null;
@@ -52,11 +51,28 @@ class m151005_151946_install extends Migration
         ], $tableOptions);
 
         // Add Indexes for performance optimization
-        $this->createIndex('rp_role_id_composite', Constants::TABLE_ROLE_PERMISSIONS, ['role_id', 'permission_id'], true);
+        $this->createIndex(
+            'rp_role_id_composite',
+            Constants::TABLE_ROLE_PERMISSIONS,
+            ['role_id', 'permission_id'],
+            true
+        );
 
         // Add Foreign Keys
-        $this->addForeignKey('rp_roles_role_id', Constants::TABLE_ROLE_PERMISSIONS, 'role_id', Constants::TABLE_ROLES, 'id');
-        $this->addForeignKey('rp_roles_permission_id', Constants::TABLE_ROLE_PERMISSIONS, 'permission_id', Constants::TABLE_PERMISSIONS, 'id');
+        $this->addForeignKey(
+            'rp_roles_role_id',
+            Constants::TABLE_ROLE_PERMISSIONS,
+            'role_id',
+            Constants::TABLE_ROLES,
+            'id'
+        );
+        $this->addForeignKey(
+            'rp_roles_permission_id',
+            Constants::TABLE_ROLE_PERMISSIONS,
+            'permission_id',
+            Constants::TABLE_PERMISSIONS,
+            'id'
+        );
     }
 
     public function down()
