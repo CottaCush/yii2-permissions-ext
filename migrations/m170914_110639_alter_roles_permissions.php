@@ -51,7 +51,6 @@ class m170914_110639_alter_roles_permissions extends Migration
             $this->boolean()->defaultValue(1)
         );
 
-
         $this->dropIndex(
             'k_' . Constants::TABLE_PERMISSIONS . '_status',
             Constants::TABLE_PERMISSIONS

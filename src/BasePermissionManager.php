@@ -29,6 +29,7 @@ abstract class BasePermissionManager extends Component implements ManagerInterfa
     }
 
     /**
+     * @param $roleKey
      * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function setRoleByKey($roleKey)
@@ -38,9 +39,9 @@ abstract class BasePermissionManager extends Component implements ManagerInterfa
     }
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $roleId
      * @return void
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function setRoleById($roleId)
     {

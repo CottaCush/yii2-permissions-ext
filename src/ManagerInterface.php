@@ -10,75 +10,75 @@ interface ManagerInterface
 {
     /**
      * Checks if the user has the specified permission.
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $permissionKey
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function canAccess($permissionKey);
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getRoles();
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getUserRole();
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $key
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getRole($key);
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $roleId
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getRoleById($roleId);
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getPermissions();
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $key
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getPermission($key);
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $permissionId
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getPermissionById($permissionId);
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $roleKey
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function setRoleByKey($roleKey);
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @param $roleId
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function setRoleById($roleId);
 
     /**
-     * @author Adegoke Obasa <goke@cottacush.com>
      * @return mixed
+     * @author Adegoke Obasa <goke@cottacush.com>
      */
     public function getUserPermissions();
 }
