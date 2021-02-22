@@ -14,71 +14,71 @@ interface ManagerInterface
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function canAccess($permissionKey);
+    public function canAccess($permissionKey): mixed;
 
     /**
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function getRoles();
+    public function getRoles(): mixed;
 
     /**
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function getUserRole();
+    public function getUserRole(): mixed;
 
     /**
      * @param $key
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function getRole($key);
+    public function getRole($key): mixed;
 
     /**
      * @param $roleId
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function getRoleById($roleId);
+    public function getRoleById($roleId): mixed;
 
     /**
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function getPermissions();
+    public function getPermissions(): mixed;
 
     /**
      * @param $key
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function getPermission($key);
+    public function getPermission($key): mixed;
 
     /**
      * @param $permissionId
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function getPermissionById($permissionId);
+    public function getPermissionById($permissionId): mixed;
 
     /**
      * @param $roleKey
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function setRoleByKey($roleKey);
+    public function setRoleByKey($roleKey): void;
 
     /**
      * @param $roleId
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function setRoleById($roleId);
+    public function setRoleById($roleId): void;
 
     /**
      * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function getUserPermissions();
+    public function getUserPermissions(): mixed;
 }

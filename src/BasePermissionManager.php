@@ -5,19 +5,21 @@
 
 namespace cottacush\rbac;
 
+use Exception;
 use Yii;
 use yii\base\Component;
 use yii\helpers\ArrayHelper;
 
 abstract class BasePermissionManager extends Component implements ManagerInterface
 {
-    protected $sessionPrefix = 'cottacush_rbac';
+    protected string $sessionPrefix = 'cottacush_rbac';
 
     /**
+     * @throws Exception
      * @author Adegoke Obasa <goke@cottacush.com>
      * @inheritdoc
      */
-    public function canAccess($permissionKey)
+    public function canAccess($permissionKey): bool
     {
         $permissions = $this->getPermissions();
         foreach ($permissions as $permission) {
@@ -30,9 +32,10 @@ abstract class BasePermissionManager extends Component implements ManagerInterfa
 
     /**
      * @param $roleKey
+     * @return mixed
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function setRoleByKey($roleKey)
+    public function setRoleByKey($roleKey): void
     {
         $role = $this->getRole($roleKey);
         Yii::$app->session->set($this->sessionPrefix . '::user_role', $role);
@@ -43,7 +46,7 @@ abstract class BasePermissionManager extends Component implements ManagerInterfa
      * @return void
      * @author Adegoke Obasa <goke@cottacush.com>
      */
-    public function setRoleById($roleId)
+    public function setRoleById($roleId): void
     {
         $role = $this->getRoleById($roleId);
         Yii::$app->session->set($this->sessionPrefix . '::user_role', $role);

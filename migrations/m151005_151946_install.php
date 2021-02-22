@@ -9,7 +9,7 @@ use yii\db\Migration;
  */
 class m151005_151946_install extends Migration
 {
-    public function up()
+    public function up(): void
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -75,7 +75,7 @@ class m151005_151946_install extends Migration
         );
     }
 
-    public function down()
+    public function down(): void
     {
         $this->dropTable(Constants::TABLE_ROLE_PERMISSIONS);
         $this->dropTable(Constants::TABLE_PERMISSIONS);

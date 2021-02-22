@@ -9,7 +9,7 @@ use yii\db\Migration;
  */
 class m170914_110639_alter_roles_permissions extends Migration
 {
-    public function up()
+    public function up(): void
     {
         //PERMISSIONS
         $this->alterColumn(
@@ -38,7 +38,7 @@ class m170914_110639_alter_roles_permissions extends Migration
         );
     }
 
-    public function down()
+    public function down(): void
     {
         $this->dropIndex(
             'k_' . Constants::TABLE_ROLES . '_status',
