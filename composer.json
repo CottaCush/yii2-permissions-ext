@@ -15,12 +15,18 @@
         }
     ],
     "require": {
-        "php" : "~8.0",
-        "yiisoft/yii2": "~2.0.40"
+        "php" : ">=8.0",
+        "yiisoft/yii2": "~2.0.40",
+        "demokn/yii2-composer-asset": "^1.1"
     },
     "autoload": {
         "psr-4": {
             "cottacush\\rbac\\": "src"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
         }
     }
 }
